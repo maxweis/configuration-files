@@ -1,0 +1,9 @@
+#! /bin/bash
+
+echo Insert range of prime numbers to guess
+read range
+
+table=$(primes 2 $range)
+
+read guess
+echo $table | grep guess
