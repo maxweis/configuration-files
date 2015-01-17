@@ -1,8 +1,0 @@
-COMPILER=clang
-
-INPUT=main.c
-
-ARGUMENTS=-lm
-
-all:
-	$(COMPILER) $(INPUT) $(ARGUMENTS) -o exec

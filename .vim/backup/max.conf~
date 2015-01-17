@@ -1,5 +1,0 @@
-title	Arch Linux (max)
-linux	/vmlinuz-max
-initrd	/initramfs-max.img
-options	root=/dev/mmcblk0p3 rw quiet splash rootwait
-
