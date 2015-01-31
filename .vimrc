@@ -33,10 +33,10 @@ set hlsearch
 set autowrite
 set hidden	
 set mouse=a
-"set tabstop=8
+set tabstop=8
 set shiftwidth=8
 set softtabstop=8
-"set expandtab
+set expandtab
 set number
 set tw=79
 set nowrap
@@ -158,6 +158,7 @@ Plugin 'vim-scripts/SearchComplete'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'
+Plugin 'brookhong/cscope.vim'
 "Plugin 'derekwyatt/vim-fswitch'
 "Plugin 'scrooloose/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
