@@ -116,8 +116,8 @@ let g:clang_snippets_engine='clang_complete'
 let g:clang_library_path='/usr/lib'
 
 "CLANG-VIM
-let g:clang_auto = 1
-let g:clang_c_options = '-std=gnu11'
+"let g:clang_auto = 1
+"let g:clang_c_options = '-std=gnu11'
 
 "Goyo settings
 let g:goyo_width=120 "defaults: 80
