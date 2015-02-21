@@ -1,5 +1,6 @@
 # The following lines were added by compinstall
 PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables
+export EDITOR=vim
 specy
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct
@@ -26,12 +27,13 @@ alias xoff="xset -dpms s off"
 alias omake="sudo make -j9"
 alias waur="w3m https://aur.archlinux.org"
 alias max="make && ./exec"
-alias smd="ssh max@192.168.1.101"
-alias shd="ssh hannah@192.168.1.104"
-alias sfmd="sftp max@192.168.1.101"
-alias sfhd="sftp hannah@192.168.1.104"
+alias smd="ssh max@192.168.1.101 -C  -X"
+alias shd="ssh hannah@192.168.1.104 -C blowfish-cbc -X"
+alias sfmd="sftp max@192.168.1.101 -C blowfish-cbc -X"
+alias sfhd="sftp hannah@192.168.1.104 -C blowfish-cbc -X"
 alias hvnc="vncviewer 192.168.1.104 -passwd /home/max/.vnc/passwd"
 alias mvnc="vncviewer 192.168.1.101 -passwd /home/max/.vnc/passwd"
+alias tap="ssh -C root@192.168.1.103 'primes 0'"
 export LC_ALL="en_US.UTF-8"
 
 typeset -A key

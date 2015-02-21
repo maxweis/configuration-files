@@ -64,8 +64,8 @@ noremap ; :
 noremap : ;
 noremap ; :
 let mapleader=","
-map <leader>j ;tabp <CR>
-map <leader>l ;tabn <CR>
+map <leader>a ;tabp <CR>
+map <leader>d ;tabn <CR>
 map <leader>t ;tabe 
 map <leader>q ;tab q! <CR> 
 map <leader>m ;center 
@@ -128,6 +128,9 @@ let g:goyo_linenr=0 "0
 " Complete options (disable preview scratch window, longest removed to aways show menu)
 set completeopt=menu,menuone
 
+"ycm
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
 " Limit popup menu height
 set pumheight=20
 
@@ -152,24 +155,26 @@ call vundle#begin()
 
     "PLUGINS
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/syntastic' 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-scripts/SearchComplete'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'
-Plugin 'brookhong/cscope.vim'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic' 
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'brookhong/cscope.vim'
+"Plugin 'vim-scripts/AutoComplPop'
+"Plugin 'xolog/vim-easytags'
+"Plugin 'xolox/vim-misc'
 "Plugin 'derekwyatt/vim-fswitch'
 "Plugin 'scrooloose/nerdtree'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'ervandew/supertab'
-"Plugin 'Rip-Rip/clang_complete'
 "Plugin 'justmao945/vim-clang'
 "Plugin 'Chiel92/vim-autoformat'
 "Plugin 'davidhalter/jedi-vim'
 "Plugin 'Lokaltog/vim-powerline'
 "Plugin 'Lokaltog/powerline'
-"Plugin 'vim-scripts/AutoComplPop'
 "Plugin 'mbbill/code_complete'
 "Plugin 'Shougo/neocomplete.vim'
 "Plugin 'fatih/vim-go'
