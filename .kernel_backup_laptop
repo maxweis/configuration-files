@@ -1,5 +1,0 @@
-#! /bin/sh
-
-sudo cp /boot/vmlinuz-max /boot/vmlinuz_old
-
-sudo cp /boot/initramfs-max.img /boot/initramfs-max_old.img
