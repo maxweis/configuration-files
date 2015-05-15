@@ -150,7 +150,8 @@ let g:bufferline_echo = 0
 let g:airline_theme = "kalisi"
 
 "VUNDLE
-set rtp+=/home/max/builds/vundle/Vundle.vim
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
     "PLUGINS
@@ -164,6 +165,7 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic' 
 Plugin 'davidhalter/jedi-vim'
+Plugin 'rust-lang/rust.vim'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'brookhong/cscope.vim'
 "Plugin 'vim-scripts/AutoComplPop'
@@ -180,3 +182,4 @@ Plugin 'davidhalter/jedi-vim'
 "Plugin 'fatih/vim-go'
 
 call vundle#end()            " required
+filetype plugin indent on

@@ -229,7 +229,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
+    --awful.key({ modkey,           }, "w", function () mymainmenu:show() end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -285,8 +285,13 @@ globalkeys = awful.util.table.join(
    awful.key({ }, "XF86AudioLowerVolume", function ()
        awful.util.spawn("amixer set Master 9%-") end),
    awful.key({ }, "XF86AudioMute", function ()
+       awful.util.spawn("amixer sset Master toggle") end),
+   awful.key({ modkey }, "=", function ()
+       awful.util.spawn("amixer set Master 9%+") end),
+   awful.key({ modkey }, "-", function ()
+       awful.util.spawn("amixer set Master 9%-") end),
+   awful.key({ modkey }, "\\", function ()
        awful.util.spawn("amixer sset Master toggle") end)
-
 )
 
 clientkeys = awful.util.table.join(
