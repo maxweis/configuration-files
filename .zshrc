@@ -35,9 +35,10 @@ alias sfmd="sftp max@192.168.1.101 -C blowfish-cbc -X"
 alias sfhd="sftp hannah@192.168.1.104 -C blowfish-cbc -X"
 alias hvnc="vncviewer 192.168.1.104 -passwd /home/max/.vnc/passwd"
 alias mvnc="vncviewer 192.168.1.101 -passwd /home/max/.vnc/passwd"
-alias tap="ssh -C root@192.168.1.103 'primes 0'"
+alias tap="ssh -C root@192.168.1.104 'primes 0'"
 export LC_ALL="en_US.UTF-8"
 alias n64="mupen64plus --resolution=1920x1080"
+alias pe="./.projectfile"
 
 typeset -A key
 
@@ -77,3 +78,18 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-init
     zle -N zle-line-finish
 fi
+magic-enter () {
+  if [[ -z $BUFFER ]]; then
+    echo ""
+    if [[ -d .git ]]; then
+      git status
+    else
+      ls -CF
+    fi
+    zle redisplay
+  else
+    zle accept-line
+  fi
+}
+zle -N magic-enter
+bindkey "^M" magic-enter

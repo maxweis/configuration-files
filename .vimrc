@@ -75,7 +75,7 @@ map <leader>p ;args *.py <bar> tab all <CR>
 "map <leader>c ;args *.c <bar> tab all <CR> 
 "map <leader>h ;args *.h <bar> tab all <CR>
 map <leader>v ;tabe  ~/.vimrc<CR>
-"map <leader>n ;NERDTreeToggle<CR>
+map <leader>n ;NERDTreeToggle<CR>
 map <leader>g ;Goyo<CR>
 vnoremap < <gv
 vnoremap > >gv
@@ -138,8 +138,8 @@ set pumheight=20
 let g:SuperTabDefaultCompletionType='<c-x><c-u><c-p>'
 
 " NERDTREE preferences
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 "Status bar
 set laststatus=2
@@ -149,6 +149,8 @@ let g:bufferline_echo = 0
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = "kalisi"
 
+"vim-session
+let g:session_autosave = 'no'
 "VUNDLE
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -166,13 +168,15 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic' 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'rust-lang/rust.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-misc'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'brookhong/cscope.vim'
 "Plugin 'vim-scripts/AutoComplPop'
 "Plugin 'xolog/vim-easytags'
 "Plugin 'xolox/vim-misc'
 "Plugin 'derekwyatt/vim-fswitch'
-"Plugin 'scrooloose/nerdtree'
 "Plugin 'justmao945/vim-clang'
 "Plugin 'Chiel92/vim-autoformat'
 "Plugin 'Lokaltog/vim-powerline'
@@ -182,4 +186,3 @@ Plugin 'rust-lang/rust.vim'
 "Plugin 'fatih/vim-go'
 
 call vundle#end()            " required
-filetype plugin indent on

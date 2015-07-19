@@ -5,7 +5,6 @@ awful.rules = require("awful.rules")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
-require("volume")
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -57,16 +56,16 @@ local layouts =
 {
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.floating,
-    awful.layout.suit.max,
-    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.fair,
+    awful.layout.suit.magnifier,
+    awful.layout.suit.floating
+    --awful.layout.suit.max,
+    --awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.tile.left,
 --    awful.layout.suit.tile.top,
---    awful.layout.suit.fair,
 --    awful.layout.suit.fair.horizontal,
 --    awful.layout.suit.spiral,
 --    awful.layout.suit.max.fullscreen,
---    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -154,7 +153,7 @@ mytasklist.buttons = awful.util.table.join(
                                               end
                                           end),
                      awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
+                                              awful.client.focus.byidx(0)
                                               if client.focus then client.focus:raise() end
                                           end),
                      awful.button({ }, 5, function ()
@@ -191,7 +190,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(volume_widget)
+    --right_layout:add(volume_widget)
     right_layout:add(mytextclock)
     right_layout:add(mylayoutbox[s])
 
@@ -262,8 +261,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run({ prompt = "Run Lua code: " },
@@ -393,6 +390,19 @@ awful.rules.rules = {
 -- }}}
 
 -- {{{ Signals
+for s = 1, screen.count() do
+    screen[s]:connect_signal("arrange", function ()
+    local clients = awful.client.visible(s)
+    for _, c in pairs(clients) do
+		if #clients == 1 then
+		    c.border_width = 0
+		else
+        	c.border_width = beautiful.border_width
+		end
+    end
+    end)
+end
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c, startup)
     -- Enable sloppy focus
@@ -463,8 +473,5 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
--- }}}
-
--- awful.util.spawn_with_shell("pulseaudio")
 mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+-- }}}
