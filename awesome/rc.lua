@@ -40,7 +40,7 @@ end
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "dbus-launch gnome-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -57,8 +57,8 @@ local layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
-    awful.layout.suit.magnifier,
     awful.layout.suit.floating
+    --awful.layout.suit.magnifier,
     --awful.layout.suit.max,
     --awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.tile.left,

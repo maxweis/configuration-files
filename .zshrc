@@ -2,7 +2,7 @@
 PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables
 export EDITOR=vim
 specy
-cowsay -f tux < ~/.note
+cowsay -f /dev/null < ~/.note
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
