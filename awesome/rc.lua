@@ -1,4 +1,6 @@
+
 -- Standard awesome library
+-- ta
 local gears = require("gears")
 local awful = require("awful")
 awful.rules = require("awful.rules")
@@ -35,6 +37,16 @@ do
 end
 -- }}}
 
+-- user functions
+function run_once(cmd)
+    findme = cmd
+    firstspace = cmd:find(" ")
+    if firstspace then
+        findme = cmd:sub(0, firstspace - 1)
+    end
+    awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (" .. cmd .. ")")
+end
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
@@ -57,8 +69,8 @@ local layouts =
     awful.layout.suit.tile,
     awful.layout.suit.tile.bottom,
     awful.layout.suit.fair,
+    awful.layout.suit.magnifier,
     awful.layout.suit.floating
-    --awful.layout.suit.magnifier,
     --awful.layout.suit.max,
     --awful.layout.suit.spiral.dwindle,
 --    awful.layout.suit.tile.left,
@@ -289,6 +301,10 @@ globalkeys = awful.util.table.join(
        awful.util.spawn("amixer set Master 9%-") end),
    awful.key({ modkey }, "\\", function ()
        awful.util.spawn("amixer sset Master toggle") end)
+   --awful.key({ modkey }, "o", function ()
+       --awful.util.spawn("xbacklight -set 1") end),
+   --awful.key({ modkey }, "s", function ()
+       --awful.util.spawn("xbacklight -set 0") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -474,4 +490,5 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 mywibox[mouse.screen].visible = not mywibox[mouse.screen].visible
+--run_once("cbatticon")
 -- }}}
