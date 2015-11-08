@@ -106,6 +106,7 @@ set noswapfile
 
 "MISC
 let g:session_autoload = 'no'
+let g:session_autosave = 'no'
 
 "VUNDLE
 filetype off
@@ -118,11 +119,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'MattesGroeger/vim-bookmarks'
 Plugin 'bling/vim-airline'
 Plugin 'junegunn/goyo.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'xolox/vim-session'
 Plugin 'xolox/vim-misc'
 Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
 "Plugin 'Valloric/YouCompleteMe'
 "Plugin 'Rip-Rip/clang_complete'
 "Plugin 'rust-lang/rust.vim'
