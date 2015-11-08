@@ -28,6 +28,7 @@ set showcmd
 set showmatch
 set ignorecase
 set smartcase
+set smarttab
 set incsearch
 set hlsearch
 set autowrite
@@ -90,8 +91,6 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-
-map <C-x><C-o> <leader>f
 
 "resize splits
 map <S-k> ;resize -5 <CR>
