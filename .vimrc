@@ -76,7 +76,9 @@ map <leader>m ;center
 map <leader>s ;split 
 map <leader>S ;vsplit 
 map <leader>v ;tabe  ~/.vimrc<CR>
+map <leader>n ;NERDTreeToggle<CR>
 map <leader>g ;Goyo<CR>
+imap <leader>f <C-x><C-f>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap j gj
@@ -88,6 +90,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+map <C-x><C-o> <leader>f
 
 "resize splits
 map <S-k> ;resize -5 <CR>
