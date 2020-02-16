@@ -1,8 +1,18 @@
 # The following lines were added by compinstall
-PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables
+~/.profile
+PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables:/home/max/git/Ndless/ndless-sdk/toolchain/install/bin:/home/max/git/Ndless/ndless-sdk/bin:~/.gem/ruby/2.5.0/bin:~/.cargo/bin
 export EDITOR=vim
-specy
+export VISUAL=vim
+export GOPATH=~/Code/go
+export WINEARCH=win32
+export _JAVA_AWT_WM_NONREPARENTING=1
+export TERM=xterm-256color
+#specy
+if [ -s ~/.note ]
+then
 cowsay -f /dev/null < ~/.note
+fi
+wmname LG3D
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
@@ -15,8 +25,9 @@ compinit
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
+export LC_ALL="en_US.UTF-8"
 setopt appendhistory autocd
 unsetopt extendedglob
 bindkey -e
@@ -24,22 +35,25 @@ prompt suse
 alias x="./exec"
 alias rx="rustc main.rs -o exec"
 alias rmdep="sudo pacman -Rccssnd"
-alias webh="w3m www.google.com"
 alias xoff="xset -dpms s off"
 alias omake="sudo make -j9"
-alias waur="w3m https://aur.archlinux.org"
 alias max="make && ./exec"
-alias smd="ssh max@192.168.1.101 -C  -X"
-alias shd="ssh hannah@192.168.1.104 -C blowfish-cbc -X"
-alias sfmd="sftp max@192.168.1.101 -C blowfish-cbc -X"
-alias sfhd="sftp hannah@192.168.1.104 -C blowfish-cbc -X"
-alias hvnc="vncviewer 192.168.1.104 -passwd /home/max/.vnc/passwd"
-alias mvnc="vncviewer 192.168.1.101 -passwd /home/max/.vnc/passwd"
-alias tap="ssh -C root@192.168.1.104 'primes 0'"
-#alias xb="xbacklight -set"
-export LC_ALL="en_US.UTF-8"
 alias n64="mupen64plus --resolution=1920x1080"
 alias pe="./.projectfile"
+alias hack="ping"
+alias wstop="sudo systemctl stop netctl-auto@wlp4s0.service"
+alias wstart="sudo systemctl start netctl-auto@wlp4s0.service"
+alias wrel="wstop && wstart"
+alias nmon="rm /tmp/monitor_lock && bash /home/max/.new_monitor"
+alias emacs="emacs -nw"
+alias wemacs="emacs"
+alias make="make -j5"
+alias vs="vim -S"
+alias ews="ssh mweis4@linux.ews.illinois.edu"
+alias fews="sftp mweis4@linux.ews.illinois.edu"
+alias scsh="ssh mweis4@cs423.maxweis.me -XY"
+alias inet="sudo openconnect vpn.cites.illinois.edu < ~/.inet_login"
+alias beep="play -q -n synth 0.1 sin 880 || echo -e \"\\a\""
 
 typeset -A key
 
@@ -94,3 +108,9 @@ magic-enter () {
 }
 zle -N magic-enter
 bindkey "^M" magic-enter
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/max/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/home/max/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/max/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/max/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
