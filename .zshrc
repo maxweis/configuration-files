@@ -22,6 +22,7 @@ autoload -Uz compinit
 autoload -U promptinit
 promptinit
 compinit
+kitty + complete setup zsh | source /dev/stdin
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.zsh_history
@@ -47,13 +48,15 @@ alias wrel="wstop && wstart"
 alias nmon="rm /tmp/monitor_lock && bash /home/max/.new_monitor"
 alias emacs="emacs -nw"
 alias wemacs="emacs"
-alias make="make -j5"
+alias make="make -j7"
 alias vs="vim -S"
 alias ews="ssh mweis4@linux.ews.illinois.edu"
 alias fews="sftp mweis4@linux.ews.illinois.edu"
 alias scsh="ssh mweis4@cs423.maxweis.me -XY"
+alias mys="ssh max@maxweis.me"
 alias inet="sudo openconnect vpn.cites.illinois.edu < ~/.inet_login"
 alias beep="play -q -n synth 0.1 sin 880 || echo -e \"\\a\""
+alias pic="kitty icat"
 
 typeset -A key
 

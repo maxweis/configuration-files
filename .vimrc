@@ -35,6 +35,8 @@ set ignorecase
 set smartcase
 set smarttab
 set smartindent
+set undofile
+set undodir=$HOME/.vim/undo
 set incsearch
 set hlsearch
 set autowrite
@@ -51,6 +53,7 @@ set splitright
 set splitbelow
 "set lazyredraw
 set backspace=2 "Backspace normal functionality
+let &t_ut=''
 
 "THEME
 colorscheme torte
@@ -69,7 +72,7 @@ augroup END
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = "kalisi"
+let g:airline_theme = "purify"
 
 "KEY BINDINGS
 noremap ; :
@@ -129,7 +132,7 @@ if has('persistent_undo')      "check if your vim version supports it
 endif     
 
 "ycm
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/max/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_register_as_syntastic_checker = 1 "default 1
@@ -162,6 +165,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-fugitive'
+Plugin 'kyoz/purify', { 'rtp': 'vim' }
 "Plugin 'suan/vim-instant-markdown'
 "Plugin 'tpope/vim-sleuth'
 "Plugin 'dag/vim2hs'
