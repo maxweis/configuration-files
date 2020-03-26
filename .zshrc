@@ -1,8 +1,8 @@
 # The following lines were added by compinstall
 ~/.profile
 PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables:/home/max/git/Ndless/ndless-sdk/toolchain/install/bin:/home/max/git/Ndless/ndless-sdk/bin:~/.gem/ruby/2.5.0/bin:~/.cargo/bin
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 export GOPATH=~/Code/go
 export WINEARCH=win32
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -56,6 +56,7 @@ alias mys="ssh max@maxweis.me"
 alias inet="sudo openconnect vpn.cites.illinois.edu < ~/.inet_login"
 alias beep="play -q -n synth 0.1 sin 880 || echo -e \"\\a\""
 alias pic="kitty icat"
+alias vim="nvim"
 
 typeset -A key
 
