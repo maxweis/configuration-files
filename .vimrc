@@ -132,7 +132,7 @@ if has('persistent_undo')      "check if your vim version supports it
 endif     
 
 "ycm
-let g:ycm_global_ycm_extra_conf = '/home/max/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_register_as_syntastic_checker = 1 "default 1
