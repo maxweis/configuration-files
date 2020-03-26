@@ -12,7 +12,6 @@ if [ -s ~/.note ]
 then
 cowsay -f /dev/null < ~/.note
 fi
-wmname LG3D
 
 zstyle ':completion:*' completer _expand _complete _ignored _correct
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=**'
