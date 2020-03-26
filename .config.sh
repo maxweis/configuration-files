@@ -20,7 +20,7 @@ fi
 fi
 
 #setup vim
-mkdir -p $HOME/.vim/{backup, bundle, undo} 
+mkdir -p $HOME/.vim/backup $HOME/.vim/bundle $HOME/.vim/undo 
 wget $SITE/.vimrc -O $HOME/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
@@ -30,6 +30,7 @@ ln -s $HOME/.vimrc $HOME/.config/nvim
 
 #setup zsh
 wget $SITE/.zshrc -O $HOME/.zshrc
+echo PATH=$PATH >> .zshrc
 
 #setup root to user settings
 sudo ln -s $HOME/.vim /root/.vim
