@@ -39,6 +39,8 @@ set undofile
 set undodir=$HOME/.vim/undo
 set incsearch
 set hlsearch
+set autoread
+au FocusGained,BufEnter * :checktime "check file updates on focus gain and buffer enter
 set autowrite
 set hidden	
 set expandtab
@@ -172,12 +174,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
-Plug 'lervag/vimtex'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
+"Plug 'scrooloose/syntastic'
+"Plug 'lervag/vimtex'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'suan/vim-instant-markdown'
 "Plug 'tpope/vim-sleuth'
