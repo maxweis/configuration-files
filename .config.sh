@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SITE="www.maxweis.me/files/"
+SITE="https://www.maxweis.me/files/"
 PACKAGES="wget git neovim zsh bear"
 PACKAGES_APT=$PACKAGES
 PACKAGES_PACMAN=$PACKAGES
@@ -28,7 +28,8 @@ curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubuserconte
 
 #setup nvim
 mkdir -p $HOME/.config/nvim
-ln -s $HOME/.vimrc $HOME/.config/nvim
+ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
+wget $SITE/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 #setup zsh
 wget $SITE/.zshrc -O $HOME/.zshrc
@@ -38,6 +39,8 @@ echo PATH=$PATH >> .zshrc
 sudo ln -s $HOME/.vim /root/.vim
 sudo ln -s $HOME/.vimrc /root/.vimrc
 sudo ln -s $HOME/.zshrc /root/.zshrc
+sudo mkdir -p /root/.config
+sudo ln -s $HOME/.config/nvim /root/.config
 
 #set shell as zsh
 sudo chsh $USER -s /bin/zsh
