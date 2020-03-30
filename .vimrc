@@ -132,7 +132,7 @@ if has('persistent_undo')      "check if your vim version supports it
 endif     
 
 "ycm
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '/home/max/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_rust_src_path = '~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 let g:ycm_register_as_syntastic_checker = 1 "default 1
@@ -141,52 +141,64 @@ let g:syntastic_rust_rustc_fname = ''
 let g:syntastic_rust_rustc_args = '--'
 let g:syntastic_rust_checkers = ['rustc']
 
+"coc
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-explorer', 'coc-git', 'coc-highlight', 'coc-java', 'coc-json', 'coc-python', 'coc-rust-analyzer', 'coc-texlab', 'coc-yaml', 'coc-yank', 'coc-gocode' ]
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
 "MISC
 let g:jedi#goto_command = ""
 let g:session_autoload = 'no'
 let g:session_autosave = 'no'
 
-"VUNDLE
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"VIM-PLUG
+call plug#begin()
 
 "PLUGINS
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'MattesGroeger/vim-bookmarks'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'junegunn/goyo.vim'
-Plugin 'xolox/vim-session'
-Plugin 'xolox/vim-misc'
-Plugin 'lervag/vimtex'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kyoz/purify', { 'rtp': 'vim' }
-"Plugin 'suan/vim-instant-markdown'
-"Plugin 'tpope/vim-sleuth'
-"Plugin 'dag/vim2hs'
-"Plugin 'rust-lang/rust.vim'
-"Plugin 'rdnetto/YCM-Generator'
-"Plugin 'ervandew/supertab'
-"Plugin 'Rip-Rip/clang_complete'
-"Plugin 'davidhalter/jedi-vim'
-"Plugin 'racer-rust/vim-racer'
-"Plugin 'Shougo/neocomplete.vim'
-"Plugin 'vim-scripts/AutoComplPop'
-"Plugin 'justmao945/vim-clang'
-"Plugin 'ctjhoa/spacevim'
-"Plugin 'mbbill/code_complete'
-"Plugin 'brookhong/cscope.vim'
-"Plugin 'xolog/vim-easytags'
-"Plugin 'derekwyatt/vim-fswitch'
-"Plugin 'Chiel92/vim-autoformat'
-"Plugin 'Lokaltog/vim-powerline'
-"Plugin 'Lokaltog/powerline'
-"Plugin 'fatih/vim-go'
+Plug 'scrooloose/nerdcommenter'
+Plug 'MattesGroeger/vim-bookmarks'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/goyo.vim'
+Plug 'xolox/vim-session'
+Plug 'xolox/vim-misc'
+Plug 'lervag/vimtex'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'suan/vim-instant-markdown'
+"Plug 'tpope/vim-sleuth'
+"Plug 'dag/vim2hs'
+"Plug 'rust-lang/rust.vim'
+"Plug 'rdnetto/YCM-Generator'
+"Plug 'ervandew/supertab'
+"Plug 'Rip-Rip/clang_complete'
+"Plug 'davidhalter/jedi-vim'
+"Plug 'racer-rust/vim-racer'
+"Plug 'Shougo/neocomplete.vim'
+"Plug 'vim-scripts/AutoComplPop'
+"Plug 'justmao945/vim-clang'
+"Plug 'ctjhoa/spacevim'
+"Plug 'mbbill/code_complete'
+"Plug 'brookhong/cscope.vim'
+"Plug 'xolog/vim-easytags'
+"Plug 'derekwyatt/vim-fswitch'
+"Plug 'Chiel92/vim-autoformat'
+"Plug 'Lokaltog/vim-powerline'
+"Plug 'Lokaltog/powerline'
+"Plug 'fatih/vim-go'
 
-call vundle#end()            " required
-filetype plugin indent on
+call plug#end()

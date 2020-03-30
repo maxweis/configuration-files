@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SITE="www.maxweis.me/files/"
-PACKAGES="wget git neovim zsh"
+PACKAGES="wget git neovim zsh bear"
 PACKAGES_APT=$PACKAGES
 PACKAGES_PACMAN=$PACKAGES
 
@@ -12,7 +12,7 @@ if [ "$EUID" = 0 ]; then
 fi
 
 #install programs
-if [ -f /bin/apt ]; then
+if [ -f /bin/apt-get ]; then
     sudo apt-get install $PACKAGES_APT
 else if [ -f /bin/pacman ]; then
     sudo pacman -S $PACKAGES_PACMAN --needed
@@ -20,9 +20,11 @@ fi
 fi
 
 #setup vim
-mkdir -p $HOME/.vim/backup $HOME/.vim/bundle $HOME/.vim/undo 
+mkdir -p $HOME/.vim/backup $HOME/.vim/bundle $HOME/.vim/undo $HOME/.vim/autoload
 wget $SITE/.vimrc -O $HOME/.vimrc
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 
 #setup nvim
 mkdir -p $HOME/.config/nvim
