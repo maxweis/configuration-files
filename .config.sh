@@ -36,10 +36,12 @@ wget $SITE/.zshrc -O $HOME/.zshrc
 echo PATH=$PATH >> .zshrc
 
 #setup root to user settings
+sudo rm -rf /root/.vim /root/.vimrc /root/.zshrc
 sudo ln -s $HOME/.vim /root/.vim
 sudo ln -s $HOME/.vimrc /root/.vimrc
 sudo ln -s $HOME/.zshrc /root/.zshrc
 sudo mkdir -p /root/.config
+sudo rm -rf /root/.config/nvim
 sudo ln -s $HOME/.config/nvim /root/.config
 
 #set shell as zsh

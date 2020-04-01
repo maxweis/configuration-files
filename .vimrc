@@ -57,9 +57,6 @@ set splitbelow
 set backspace=2 "Backspace normal functionality
 let &t_ut=''
 
-"THEME
-colorscheme torte
-set background=dark
 "highlight if over 80 characters long
 highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
 
@@ -75,6 +72,7 @@ let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = "purify"
+
 
 "KEY BINDINGS
 noremap ; :
@@ -158,10 +156,20 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+"indent guides
+let g:indent_guides_ignorelist = ['text']
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
+
 "MISC
 let g:jedi#goto_command = ""
 let g:session_autoload = 'no'
 let g:session_autosave = 'no'
+map <Leader> <Plug>(easymotion-prefix)
 
 "VIM-PLUG
 call plug#begin()
@@ -170,14 +178,26 @@ call plug#begin()
 Plug 'scrooloose/nerdcommenter'
 Plug 'MattesGroeger/vim-bookmarks'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'scrooloose/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
+Plug 'jiangmiao/auto-pairs'
+Plug 'easymotion/vim-easymotion'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'markonm/traces.vim'
+"THEMES
+Plug 'sjl/badwolf'
+Plug 'altercation/vim-colors-solarized'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'romainl/vim-qf'
+"Plug 'unblevable/quick-scope'
+"Plug 'mhinz/vim-startify'
+"Plug 'thaerkh/vim-indentguides'
+"Plug 'Raimondi/delimitMate'
 "Plug 'scrooloose/syntastic'
 "Plug 'lervag/vimtex'
 "Plug 'Valloric/YouCompleteMe'
@@ -204,3 +224,7 @@ Plug 'kyoz/purify', { 'rtp': 'vim' }
 "Plug 'fatih/vim-go'
 
 call plug#end()
+
+"THEME
+colorscheme solarized
+set background=dark
