@@ -26,7 +26,7 @@ let g:clang_snippets_engine='clang_complete'
 let g:neocomplete#enable_at_startup=1
 set wildmode=longest,list,full
 set wildmenu
-set completeopt=menu,preview
+"set completeopt=menu,preview
 set pumheight=20
 set concealcursor=vin
 set showcmd
@@ -53,17 +53,12 @@ set shiftwidth=4
 set expandtab
 set splitright
 set splitbelow
-"set lazyredraw
+set lazyredraw
 set backspace=2 "Backspace normal functionality
 let &t_ut=''
 
 "highlight if over 80 characters long
-highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
-
-augroup vimrc_autocmds
-    autocmd!
-    autocmd BufEnter,WinEnter * call matchadd('ColorColumn', '\%81v', 100)
-augroup END
+let &colorcolumn=join(range(81,999),",")
 
 "status bar
 "set laststatus=2
@@ -113,12 +108,6 @@ noremap <Leader>Y "+y
 noremap <Leader>P "+p
 set mouse=a
 
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 "BACKUP
 set backup
 set backupdir=~/.vim/backup
@@ -144,7 +133,7 @@ let g:syntastic_rust_checkers = ['rustc']
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-explorer', 'coc-git', 'coc-highlight', 'coc-java', 'coc-json', 'coc-python', 'coc-rust-analyzer', 'coc-texlab', 'coc-yaml', 'coc-yank', 'coc-gocode' ]
+let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-explorer', 'coc-git', 'coc-highlight', 'coc-java', 'coc-json', 'coc-python', 'coc-rust-analyzer', 'coc-texlab', 'coc-yaml', 'coc-yank', 'coc-go', 'coc-snippets', 'coc-pairs']
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -156,8 +145,10 @@ inoremap <silent><expr> <Tab>
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
 
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 "indent guides
-let g:indent_guides_ignorelist = ['text']
+let g:indent_guides_exclude_filetypes = ['help', 'text']
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size = 1
@@ -165,11 +156,18 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=black
 
+"ultisnips
+let g:UltiSnipsExpandTrigger = "<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsSnippetDirectories = ['~/.config/nvim/UltiSnips']
+
 "MISC
 let g:jedi#goto_command = ""
 let g:session_autoload = 'no'
 let g:session_autosave = 'no'
 map <Leader> <Plug>(easymotion-prefix)
+let g:go_def_mapping_enabled = 0
 
 "VIM-PLUG
 call plug#begin()
@@ -182,17 +180,23 @@ Plug 'junegunn/goyo.vim'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-Plug 'jiangmiao/auto-pairs'
 Plug 'easymotion/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'markonm/traces.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 "THEMES
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
-"Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tomasr/molokai'
+"Plug 'jiangmiao/auto-pairs'
+"Plug 'rstacruz/vim-closer'
+"Plug 'whatyouhide/vim-lengthmatters'
 "Plug 'romainl/vim-qf'
 "Plug 'unblevable/quick-scope'
 "Plug 'mhinz/vim-startify'
@@ -221,7 +225,6 @@ Plug 'kyoz/purify', { 'rtp': 'vim' }
 "Plug 'Chiel92/vim-autoformat'
 "Plug 'Lokaltog/vim-powerline'
 "Plug 'Lokaltog/powerline'
-"Plug 'fatih/vim-go'
 
 call plug#end()
 

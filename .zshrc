@@ -1,6 +1,6 @@
 # The following lines were added by compinstall
 ~/.profile
-PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables:/home/max/git/Ndless/ndless-sdk/toolchain/install/bin:/home/max/git/Ndless/ndless-sdk/bin:~/.gem/ruby/2.5.0/bin:~/.cargo/bin
+PATH=/bin:/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/max/executables:/home/max/git/Ndless/ndless-sdk/toolchain/install/bin:/home/max/git/Ndless/ndless-sdk/bin:~/.gem/ruby/2.5.0/bin:~/.cargo/bin:$GOPATH/bin
 export EDITOR=nvim
 export VISUAL=nvim
 export GOPATH=~/Code/go
