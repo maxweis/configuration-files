@@ -37,12 +37,17 @@ floating_modifier Mod1
 # start a terminal
 bindsym Mod1+t exec kitty
 
+# start a browser
+bindsym Mod1+b exec qutebrowser
+bindsym Mod1+Shift+b exec google-chrome-stable
+bindsym Mod1+Control+b exec inc
+
 # kill focused window
 bindsym Mod1+Shift+c kill
 
 #bindsym Mod1+p exec rofi -show combi
-bindsym Mod1+p exec rofi -show run -modi run -location 1 -width 100 -lines 4 -line-margin 0 -line-padding 1 \
-                 -separator-style none -font "ubuntu 11" -columns 3 -bw 0
+bindsym Mod1+p exec rofi -show run -modi run -location 1 -width 100 -lines 4 -line-margin 0 -line-padding 2 \
+                 -separator-style none -font "ubuntu 11" -columns 3 -bw 0 #-yoffset 20
 bindsym Mod1+Shift+p exec rofi -show window
 
 # bindsym Mod1+p exec --no-startup-id i3-dmenu-desktop
@@ -70,7 +75,7 @@ set $base0D #61afef
 set $base0E #c678dd
 set $base0F #be5046
 
-client.focused          $base05 $base0D $base00 $base0D $base0C
+client.focused          $base05 $base0D $base00 $base07 $base0C
 client.focused_inactive $base01 $base01 $base05 $base03 $base01
 client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
@@ -247,17 +252,17 @@ bindsym Mod1+r mode "resize"
 
 bar {
         mode hide
-        font pango:FontAwesome 9
+        font pango:FontAwesome 10
         hidden_state hide
         modifier Mod1
         status_command bumblebee-status \
-        -m spacer title shell cmus spotify sensors nic battery brightness amixer date \
-        -p interval=.2 \
+        -m spacer shell cmus spotify sensors nic battery brightness amixer date \
+        -p interval=.5 \
         spacer.text="max-laptop" \
         date.format=" %a %m/%d %l:%M " \
         nic.exclude="lo" \
         nic.format="{ssid} {state}" \
-        title.max=35 \
+        title.max=45 \
         shell.command="i3groups get-group" \
         spotify.format="{title} - {artist}" \
         -t onedark-powerline
@@ -272,7 +277,7 @@ bar {
         strip_workspace_numbers yes
         position top
         tray_output none # no extra icons show up in bar
-        height 24
+        #height 24
 }
 
 #bar {
@@ -287,8 +292,8 @@ bar {
         #tray_output none # no extra icons show up in bar
 #}
 
-# add background image
-exec feh --bg-fill /home/max/.config/i3/background
+## add background image
+#exec feh --bg-fill /home/max/.config/i3/background
 
 # disable titlebars
 new_window 1pixel
@@ -358,7 +363,14 @@ exec compton --config /home/max/.config/compton.conf
 exec xautolock -time 50 -locker "lock && amixer set Master mute"  -secure -detectsleep
 
 #i3-gnome
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id gnome-flashback
-#exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+#exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+#exec --no-startup-id gnome-flashback
+##exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# systemd-boot
+bindsym Mod1+Shift+Control+w exec sudo systemctl reboot --boot-loader-entry=auto-windows
+bindsym Mod1+Shift+Control+i exec sudo systemctl reboot --boot-loader-entry=arch
+bindsym Mod1+Shift+Control+n exec sudo systemctl reboot --boot-loader-entry=arch_nv
+bindsym Mod1+Shift+Control+f exec sudo systemctl reboot --firmware-setup
+bindsym Mod1+Shift+Control+r exec sudo systemctl reboot

@@ -218,7 +218,6 @@ config.bind('d', 'tab-close')
 config.bind('u', 'undo')
 config.bind(';', 'set-cmd-text :')
 c.url.start_pages = "https://www.google.com/"
-# tabs.show = "multiple"
 config.set("statusbar.hide", True)
 config.set("tabs.show", "multiple")
 config.set("downloads.position", "bottom")

@@ -102,10 +102,8 @@ map <S-l> ;vertical resize +5 <CR>
 map <S-j> ;resize +5 <CR>
 
 "x11
-noremap <Leader>y "*y
-noremap <Leader>p "*p
-noremap <Leader>Y "+y
-noremap <Leader>P "+p
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 set mouse=a
 
 "BACKUP
@@ -194,6 +192,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasr/molokai'
+"Plug 'haya14busa/vim-easyoperator-line'
 "Plug 'jiangmiao/auto-pairs'
 "Plug 'rstacruz/vim-closer'
 "Plug 'whatyouhide/vim-lengthmatters'
