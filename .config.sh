@@ -12,7 +12,7 @@ if [ "$EUID" = 0 ]; then
 fi
 
 #install programs
-if [ -f /bin/apt-get ]; then
+if [ -f /usr/bin/apt ]; then
     sudo apt-get install $PACKAGES_APT
 else if [ -f /bin/pacman ]; then
     sudo pacman -S $PACKAGES_PACMAN --needed
