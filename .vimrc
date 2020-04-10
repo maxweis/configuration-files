@@ -56,6 +56,7 @@ set splitbelow
 set lazyredraw
 set backspace=2 "Backspace normal functionality
 let &t_ut=''
+set viewoptions=cursor,folds,slash,unix
 
 "highlight if over 80 characters long
 let &colorcolumn=join(range(81,999),",")
@@ -188,6 +189,7 @@ Plug 'markonm/traces.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/echodoc.vim'
+Plug 'vim-scripts/restore_view.vim'
 "THEMES
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
