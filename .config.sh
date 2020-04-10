@@ -22,13 +22,15 @@ fi
 #setup vim
 mkdir -p $HOME/.vim/backup $HOME/.vim/bundle $HOME/.vim/undo $HOME/.vim/autoload
 wget $SITE/.vimrc -O $HOME/.vimrc
-git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 #setup nvim
 mkdir -p $HOME/.config/nvim
 ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -sL install-node.now.sh/lts | sudo bash
 wget $SITE/coc-settings.json $HOME/.config/nvim/coc-settings.json
 
 #setup zsh
