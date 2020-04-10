@@ -62,7 +62,7 @@ let &colorcolumn=join(range(81,999),",")
 
 "status bar
 "set laststatus=2
-"set noshowmode
+set noshowmode
 let g:airline_powerline_fonts = 1
 let g:bufferline_echo = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -166,6 +166,7 @@ let g:session_autoload = 'no'
 let g:session_autosave = 'no'
 map <Leader> <Plug>(easymotion-prefix)
 let g:go_def_mapping_enabled = 0
+let g:echodoc#enable_at_startup = 1
 
 "VIM-PLUG
 call plug#begin()
@@ -186,6 +187,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'markonm/traces.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'Shougo/echodoc.vim'
 "THEMES
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
