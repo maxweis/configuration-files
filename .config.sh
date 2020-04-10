@@ -31,7 +31,7 @@ ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -sL install-node.now.sh/lts | sudo bash
-wget $SITE/coc-settings.json $HOME/.config/nvim/coc-settings.json
+wget $SITE/coc-settings.json -O $HOME/.config/nvim/coc-settings.json
 
 #setup zsh
 wget $SITE/.zshrc -O $HOME/.zshrc
