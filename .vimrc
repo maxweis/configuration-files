@@ -59,7 +59,8 @@ let &t_ut=''
 set viewoptions=cursor,folds,slash,unix
 
 "highlight if over 80 characters long
-let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn=join(range(81,81),",")
+
 
 "status bar
 "set laststatus=2
@@ -83,7 +84,6 @@ map <leader>S ;vsplit
 map <leader>v ;tabe  ~/.vimrc<CR>
 map <leader>n ;NERDTreeToggle<CR>
 map <leader>g ;Goyo<CR>
-imap <leader>f <C-x><C-f>
 vnoremap < <gv
 vnoremap > >gv
 nnoremap j gj
@@ -132,7 +132,8 @@ let g:syntastic_rust_checkers = ['rustc']
 "coc
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-explorer', 'coc-git', 'coc-highlight', 'coc-java', 'coc-json', 'coc-python', 'coc-rust-analyzer', 'coc-texlab', 'coc-yaml', 'coc-yank', 'coc-go', 'coc-snippets', 'coc-pairs']
+let g:coc_global_extensions = ['coc-clangd', 'coc-cmake', 'coc-css', 'coc-cssmodules', 'coc-explorer', 'coc-git', 'coc-highlight', 'coc-java', 'coc-json', 'coc-python', 'coc-rust-analyzer', 'coc-texlab', 'coc-yaml', 'coc-yank', 'coc-go', 'coc-snippets', 'coc-pairs', 'coc-rust-analyzer']
+map <leader>f ;call CocAction('format') <CR>
 
 function! s:check_back_space() abort
   let col = col('.') - 1
@@ -183,7 +184,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
-Plug 'easymotion/vim-easymotion'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'markonm/traces.vim'
 Plug 'SirVer/ultisnips'
@@ -203,6 +203,7 @@ Plug 'tomasr/molokai'
 "Plug 'romainl/vim-qf'
 "Plug 'unblevable/quick-scope'
 "Plug 'mhinz/vim-startify'
+"Plug 'easymotion/vim-easymotion'
 "Plug 'thaerkh/vim-indentguides'
 "Plug 'Raimondi/delimitMate'
 "Plug 'scrooloose/syntastic'
@@ -232,5 +233,5 @@ Plug 'tomasr/molokai'
 call plug#end()
 
 "THEME
-colorscheme solarized
+colorscheme elflord
 set background=dark
