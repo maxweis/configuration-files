@@ -1,21 +1,21 @@
 return {
   "zbirenbaum/copilot.lua",
   dependencies = {
-    "copilotlsp-nvim/copilot-lsp",
-    init = function()
-      vim.g.copilot_nes_debounce = 100
-    end,
-  },
-  requires = {
-    "copilotlsp-nvim/copilot-lsp",
-    init = function()
-      vim.g.copilot_nes_debounce = 500
-    end,
+    {
+      "copilotlsp-nvim/copilot-lsp",
+      init = function()
+        vim.g.copilot_nes_debounce = 100
+      end,
+    },
   },
   cmd = "Copilot",
   event = "InsertEnter",
   config = function()
     require("copilot").setup({
+      filetypes = {
+        markdown = true,
+        ["*"] = true,
+      },
       nes = {
         enabled = true,
         keymap = {
