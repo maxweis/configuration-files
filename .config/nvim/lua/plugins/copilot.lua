@@ -17,7 +17,7 @@ return {
         ["*"] = true,
       },
       nes = {
-        enabled = true,
+        enabled = false,
         keymap = {
           accept_and_goto = "<leader>cp",
           accept = false,

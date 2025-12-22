@@ -18,3 +18,9 @@ for i = 1, 9 do
     require("bufferline").go_to(i, true)
   end, { desc = "Go to buffer " .. i })
 end
+
+-- Move buffer to the left
+map("n", "<leader>bh", "<cmd>BufferLineMovePrev<cr>", { desc = "Move buffer prev" })
+
+-- Move buffer to the right
+map("n", "<leader>bl", "<cmd>BufferLineMoveNext<cr>", { desc = "Move buffer next" })

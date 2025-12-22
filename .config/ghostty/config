@@ -49,14 +49,15 @@ font-family = Victor Mono
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
-// Move between splits
+# Move between splits
 keybind = cmd+shift+h=goto_split:left
 keybind = cmd+shift+l=goto_split:right
 keybind = cmd+shift+k=goto_split:top
 keybind = cmd+shift+j=goto_split:bottom
 
-// Resize splits
+# Resize splits
 keybind = cmd+ctrl+h=resize_split:left,20
 keybind = cmd+ctrl+l=resize_split:right,20
 keybind = cmd+ctrl+k=resize_split:up,20
 keybind = cmd+ctrl+j=resize_split:down,20
+keybind = shift+enter=text:\x1b\r
