@@ -57,3 +57,4 @@ GitHub Copilot plugin configuration for LazyVim. Configures:
 * Homebrew
 * nvim
 * LazyVim
+* oh-my-zsh
