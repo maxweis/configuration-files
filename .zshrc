@@ -7,11 +7,8 @@ zstyle ':omz:update' frequency 13
 COMPLETION_WAITING_DOTS="true"
 MAGIC_ENTER_GIT_COMMAND='git status -u .'
 MAGIC_ENTER_OTHER_COMMAND='ls .'
-plugins=(git brew colorize command-not-found copyfile docker-compose docker dotenv extract git-auto-fetch gradle helm kubectl kubectx minikube mvn npm opentofu rust sdk ssh terraform web-search magic-enter)
+plugins=(git aws azure brew colorize command-not-found copyfile docker-compose docker dotenv extract git-auto-fetch gcloud gradle helm kubectl kubectx minikube mvn npm opentofu rust sdk ssh terraform web-search magic-enter)
 source $ZSH/oh-my-zsh.sh
-
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Configurations
 if [[ -n $SSH_CONNECTION ]]; then
