@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "max.hotcorners",
+  "name": "Hot corners",
+  "version": "1.0.0",
+  "author": "Max",
+  "description": "Top-left menu and top-right calendar hot corners",
+  "kinds": [
+    "service"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml"
+  }
+}

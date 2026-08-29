@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Route Vim navigation to the Omarchy menu when it is open; otherwise keep
+# SUPER+H/J/K/L as normal directional window focus bindings.
+key=$1
+direction=$2
+
+if hyprctl layers -j 2>/dev/null | jq -e '.. | objects | select(.namespace == "omarchy-menu")' >/dev/null 2>&1; then
+  hyprctl eval "hl.dispatch(hl.dsp.send_key_state({ mods = \"\", key = \"$key\", state = \"down\" }))" >/dev/null
+  sleep 0.05
+  exec hyprctl eval "hl.dispatch(hl.dsp.send_key_state({ mods = \"\", key = \"$key\", state = \"up\" }))"
+fi
+
+exec hyprctl eval "hl.dispatch(hl.dsp.focus({ direction = \"$direction\" }))"

@@ -1,0 +1,25 @@
+autoreload: true
+
+device_rules:
+  - conditions: $touchpad
+    grab: true
+    ignore: false
+
+  - conditions: $types != touchpad
+    ignore: true
+
+touchpad:
+  gestures:
+    - type: swipe
+      fingers: 4
+      direction: left
+      actions:
+        - on: end
+          command: /home/max/.local/bin/omarchy-move-window-workspace left
+
+    - type: swipe
+      fingers: 4
+      direction: right
+      actions:
+        - on: end
+          command: /home/max/.local/bin/omarchy-move-window-workspace right

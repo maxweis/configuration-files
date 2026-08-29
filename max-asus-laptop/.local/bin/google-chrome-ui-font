@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Give Chrome its own GTK settings directory while retaining the usual profile
+# and Omarchy Chrome flags.
+set -euo pipefail
+
+chrome_config_dir="/home/max/.config"
+chrome_gtk_config_dir="/home/max/.config/chrome-ui-font"
+chrome_profile_dir="/home/max/.config/google-chrome"
+chrome_flags_file="${chrome_config_dir}/chrome-flags.conf"
+chrome_flags=()
+
+if [[ -f "${chrome_flags_file}" ]]; then
+  mapfile -t chrome_flags < <(rg -v '^\s*(#|$)' "${chrome_flags_file}")
+fi
+
+export XDG_CONFIG_HOME="${chrome_gtk_config_dir}"
+export GSETTINGS_BACKEND=keyfile
+exec /opt/google/chrome/google-chrome \
+  "${chrome_flags[@]}" \
+  --user-data-dir="${chrome_profile_dir}" \
+  "$@"

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+workspace_id=$(hyprctl activeworkspace -j 2>/dev/null | jq -r '.id')
+case "$1" in
+  left)
+    [ "$workspace_id" -le 1 ] && exit 0
+    target=$((workspace_id - 1))
+    ;;
+  right)
+    target=$((workspace_id + 1))
+    ;;
+  *) exit 2 ;;
+esac
+
+exec hyprctl eval "hl.dispatch(hl.dsp.focus({ workspace = \"$target\" }))"
