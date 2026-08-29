@@ -1,0 +1,7 @@
+captured_at=2026-08-28T20:37:52-05:00
+omarchy=4.0.1-1
+kernel=7.1.9-arch1-2
+architecture=x86_64
+pacman_all_count=1154
+pacman_explicit_count=191
+pacman_foreign_count=1
